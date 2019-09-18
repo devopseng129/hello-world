@@ -4,10 +4,13 @@
   tasks:
      - name: stop previous version docker
        shell: docker stop kiran_demo
+       ignore_errors: yes
      - name: remove stopped container
        shell: docker rm -f kiran_demo
+       ignore_errors: yes
      - name: remove docker images
        shell: docker image rm -f justkiran/justkiran:kiran_demo
+       ignore_errors: yes
        
      - name: create docker image
        shell: docker run -d --name kiran_demo -p 8090:8080 justkiran/justkiran:kiran_demo
